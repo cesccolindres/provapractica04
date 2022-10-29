@@ -1,0 +1,17 @@
+.margetop{
+    margin-top: 150px;
+}
+
+p{
+    font-size: larger;
+}
+
+.midafoto{
+    height: 300px !important;
+    width: 300px !important;
+}
+
+.midafotorectangle{
+    height: 400px !important;
+    width: 500px !important;
+}

@@ -1,0 +1,25 @@
+.margeTitol{
+    margin-left: 190px;
+    margin-top: 15px;
+}
+
+.mateixalinia{
+    display: inline-block;
+}
+
+.mourefoto{
+    margin-left: 100px;
+}
+
+.midafoto{
+    height: 300px !important;
+    width: 300px !important;
+    margin-bottom: 100px;
+}
+
+
+
+.midafotorectangle{
+    height: 400px !important;
+    width: 500px !important;
+}
