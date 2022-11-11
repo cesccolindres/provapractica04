@@ -1,10 +1,10 @@
 
-<h1 class="margeTitol text-uppercase">{{nombreDetalle}} <p class="fs-3 fw-light mateixalinia">({{dataaparicio}})</p> </h1>
+<h1 class="margeTitol text-uppercase">{{nombreDetalle | uppercase}} <p class="fs-3 fw-light mateixalinia">({{aparicion | date:'y'}})</p> </h1>
     <br>
 
 <div class="row justify-content-center container">
     <div class="col-3 mourefoto">
-            <img [src]="heroes [id-1].img" class="card-img-top" alt="...">
+            <img [src]="img" class="card-img-top" alt="...">
             <div class="d-grid gap-2 mt-3">
                 <button type="button" class="btn btn-outline-danger" [routerLink]="['/heroes']"> Regresar </button>
             </div>
@@ -13,13 +13,13 @@
     <div class="col-8 mb-7 container">
         <h3> {{nombreDetalle}}</h3> 
         <hr>
-        <p>{{heroes[id-1].bio}}</p>
+        <p>{{bio}}</p>
         
-            <div *ngIf="heroes[id-1].casa == 'Marvel'"> 
+            <div *ngIf="casa == 'Marvel'"> 
                 <img src="assets\img\marvel.png" class="card-img-top midafotorectangle" alt="...">
             </div>
 
-            <div *ngIf="heroes[id-1].casa == 'DC'"> 
+            <div *ngIf="casa == 'DC'"> 
                 <img src="assets\img\DC.jpg" class="card-img-top midafoto" alt="...">
             </div>
     </div>

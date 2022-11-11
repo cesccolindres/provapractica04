@@ -1,0 +1,33 @@
+<div class = "container mt-5 mb-5">
+    <div *ngIf="comptador>1">
+        <h2 class="mb-4"><b>Héroes</b> Marvel y DC </h2>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div *ngFor="let buscar of buscararray">
+                <div *ngFor="let heroes of heroes" class="col">
+                    <div *ngIf="buscar == heroes.id">
+                        <div class="card n-100">
+                        <img [src]="heroes.img" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{heroes.nombre}}</h5>
+                            <p class="card-text">{{heroes.bio}}</p>
+                            <p class="card-text"><small class="text-muted">{{heroes.aparicion}}</small></p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary" type="button" [routerLink]="['/heroe', heroes.id] ">Ver más</button>
+                            </div>
+                        </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="comptador==0" align="center">
+        <h1 class="mb-4"><b>No se ha encontrado ningún héroe</b></h1>
+        <img src="assets\img\imatge.png">
+        <br>
+        <button class="btn btn-outline-primary mt-5" type="button" [routerLink]="['/heroes'] ">Regresar</button>
+    </div>
+
+</div>

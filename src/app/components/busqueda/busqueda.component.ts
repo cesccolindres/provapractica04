@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-heroe',
-  templateUrl: './heroe.component.html',
-  styleUrls: ['./heroe.component.css']
+  selector: 'app-busqueda',
+  templateUrl: './busqueda.component.html',
+  styleUrls: ['./busqueda.component.css']
 })
-export class HeroeComponent implements OnInit {
+export class BusquedaComponent implements OnInit {
 
   id: any;
+  buscararray: number[]=[]
+  comptador = 0
 
   heroes = [
     {
@@ -69,28 +71,21 @@ export class HeroeComponent implements OnInit {
     } 
 ];
 
- 
-  nombreDetalle: any;
-  bio: any;
-  img: any;
-  aparicion: any;
-  casa: any;
 
-
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
     for(let i = 0; i < this.heroes.length; i++){
-      if (this.id == this.heroes[i].id || this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0){
-        console.log(this.id);
-        this.nombreDetalle = this.heroes[i].nombre;
-        this.bio = this.heroes[i].bio;
-        this.img = this.heroes[i].img;
-        this.aparicion = this.heroes[i].aparicion;
-        this.casa = this.heroes[i].casa;
-    } 
-  }
+      if (this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0){
+        this.buscararray[this.comptador]=this.heroes[i].id;
+        this.comptador ++;
+      }
+    }
+
+    if (this.comptador == 1){
+      this.router.navigate(['/heroe', this.id]);
+    }
+
 }
 }
